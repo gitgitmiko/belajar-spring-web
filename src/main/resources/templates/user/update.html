@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="/header"></th:block>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="form-group col-md-4">
+        <h2>Edit User</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="form-group col-md-4">
+        <button type="button" class="close" onclick="window.location.href='/user';">&times;</button>
+    </div>
+</div>
+<form th:object="${dataSets}" th:action="@{update}" method="post">
+    <input type="hidden" id="id" name="id" th:field="*{id}">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="form-group col-md-4">
+            <label for="txtUname">Username</label>
+            <input type="text" class="form-control" id="txtUname" name="txtUname" placeholder="Username"
+                   th:field="*{username}" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="form-group col-md-4">
+            <label for="txtPass">Password</label>
+            <input type="text" class="form-control" id="txtPass" name="txtPass" placeholder="Password"
+                   th:field="*{password}" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="form-group col-md-4">
+            <button type="submit" class="btn btn-success">Simpan</button>
+        </div>
+    </div>
+</form>
+<th:block th:include="/footer"></th:block>
+</html>
