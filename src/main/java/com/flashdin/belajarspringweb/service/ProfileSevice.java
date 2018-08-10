@@ -1,6 +1,6 @@
-package com.flashdin.belajarspringweb.service;
+package com.flashdin.belajarspringwebweb.service;
 
-import com.flashdin.belajarspring.entity.Profile;
+import com.flashdin.belajarspringweb.entity.Profile;
 
 public interface ProfileSevice extends BaseService<Profile> {
 }

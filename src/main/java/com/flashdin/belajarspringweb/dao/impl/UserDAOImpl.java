@@ -1,7 +1,7 @@
 package com.flashdin.belajarspringweb.dao.impl;
 
-import com.flashdin.belajarspring.dao.UserDAO;
-import com.flashdin.belajarspring.entity.User;
+import com.flashdin.belajarspringweb.dao.UserDAO;
+import com.flashdin.belajarspringweb.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

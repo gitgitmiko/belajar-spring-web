@@ -1,9 +1,9 @@
-package com.flashdin.belajarspringweb.service.impl;
+package com.flashdin.belajarspringwebweb.service.impl;
 
-import com.flashdin.belajarspring.dao.ProfileDAO;
-import com.flashdin.belajarspring.dao.impl.ProfileDAOImpl;
-import com.flashdin.belajarspring.entity.Profile;
-import com.flashdin.belajarspring.service.ProfileSevice;
+import com.flashdin.belajarspringweb.dao.ProfileDAO;
+import com.flashdin.belajarspringweb.dao.impl.ProfileDAOImpl;
+import com.flashdin.belajarspringweb.entity.Profile;
+import com.flashdin.belajarspringweb.service.ProfileSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,6 +1,6 @@
 package com.flashdin.belajarspringweb.dao;
 
-import com.flashdin.belajarspring.entity.User;
+import com.flashdin.belajarspringweb.entity.User;
 
 public interface UserDAO extends BaseDAO<User> {
 }

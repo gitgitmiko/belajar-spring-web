@@ -1,9 +1,9 @@
 package com.flashdin.belajarspringweb.service.impl;
 
-import com.flashdin.belajarspring.dao.UserDAO;
-import com.flashdin.belajarspring.dao.impl.UserDAOImpl;
-import com.flashdin.belajarspring.entity.User;
-import com.flashdin.belajarspring.service.UserSevice;
+import com.flashdin.belajarspringweb.dao.UserDAO;
+import com.flashdin.belajarspringweb.dao.impl.UserDAOImpl;
+import com.flashdin.belajarspringweb.entity.User;
+import com.flashdin.belajarspringweb.service.UserSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

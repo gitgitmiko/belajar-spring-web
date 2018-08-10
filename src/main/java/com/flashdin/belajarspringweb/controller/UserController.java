@@ -1,15 +1,15 @@
 package com.flashdin.belajarspringweb.controller;
 
-import com.flashdin.belajarspring.entity.User;
-import com.flashdin.belajarspring.service.UserSevice;
-import com.flashdin.belajarspring.service.impl.UserServiceImpl;
+import com.flashdin.belajarspringweb.entity.User;
+import com.flashdin.belajarspringweb.service.UserSevice;
+import com.flashdin.belajarspringweb.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-//@RestController
-@Controller
+@RestController
+//@Controller
 //@RequestMapping("/user")
 public class UserController {
 
