@@ -39,4 +39,9 @@ public class UserServiceImpl implements UserSevice {
     public List<User> findAll() {
         return userDAO.findAll();
     }
+
+    @Override
+    public List<User> findByUsername(User param) {
+        return userDAO.findByUsername(param);
+    }
 }

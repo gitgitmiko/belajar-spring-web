@@ -58,8 +58,15 @@ public class UserController {
     }
 
     @GetMapping(path = "")
-    public String findAll(Model model) {
-        model.addAttribute("dataSets", userService.findAll());
+    public String viewData(Model model, @RequestParam(value = "search", required = false) String param,
+                           @RequestParam(value = "filter", required = false) String param1) {
+        if (param == null && param1 == null) {
+            model.addAttribute("dataSets", userService.findAll());
+        } else {
+            User user = new User();
+            user.setUsername(param);
+            model.addAttribute("dataSets", userService.findByUsername(user));
+        }
         return "/user/list";
     }
 

@@ -61,7 +61,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User findById(int id) {
         String sql = "select * from table_user where id=?";
-        return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<>(User.class));
+        return jdbcTemplate.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<>(User.class));
     }
 
     @Override
@@ -70,4 +70,9 @@ public class UserDAOImpl implements UserDAO {
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
     }
 
+    @Override
+    public List<User> findByUsername(User param) {
+        String sql = "select * from table_user where username like ?";
+        return jdbcTemplate.query(sql, new Object[]{"%" + param.getUsername() + "%"}, new BeanPropertyRowMapper<>(User.class));
+    }
 }
