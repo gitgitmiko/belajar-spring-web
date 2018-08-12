@@ -1,4 +1,4 @@
-package com.flashdin.belajarspringwebweb.service;
+package com.flashdin.belajarspringweb.service;
 
 import com.flashdin.belajarspringweb.entity.Profile;
 

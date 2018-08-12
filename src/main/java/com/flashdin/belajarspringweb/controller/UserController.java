@@ -8,60 +8,59 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-//@Controller
-//@RequestMapping("/user")
+@Controller
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private UserSevice userService = new UserServiceImpl();
 
-
-    @GetMapping(value = "/user/create")
+    @GetMapping(path = "/create")
     public String viewCreate(Model model) {
+        model.addAttribute("dataSets", new User());
         return "/user/create";
     }
 
-    @GetMapping(value = "/user/update/{id}")
+    @GetMapping(path = "/update/{id}")
     public String viewUpdate(Model model, @PathVariable(value = "id") int id) {
         model.addAttribute("dataSets", userService.findById(id));
-        return "dataSets";
+        return "/user/update";
     }
 
-    @PostMapping(value = "/user/create")
-    public String save(@RequestBody User param) {
+    @PostMapping(value = "/create")
+    public String save(User param) {
         User data = userService.save(param);
-        if (data == null) {
-            return "redirect:/user/create?success=0";
+        if (data.getId() == 0) {
+            return "redirect:/user/create?failed";
         } else {
-            return "redirect:/user/create?success=1";
+            return "redirect:/user/create?success";
         }
     }
 
-    @PutMapping(value = "/user")
-    public String update(@RequestBody User param) {
+    @PutMapping(path = "/update")
+    public String update(User param) {
         User data = userService.update(param);
-        if (data == null) {
-            return "redirect:/user?usuccess=0";
+        if (data.getId() == 0) {
+            return "redirect:/user?ufailed";
         } else {
-            return "redirect:/user?usuccess=1";
+            return "redirect:/user?usuccess";
         }
     }
 
-    @DeleteMapping(value = "/user")
-    public String delete(@RequestBody User param) {
+    @DeleteMapping(path = "/delete")
+    public String delete(User param) {
         int data = userService.delete(param);
         if (data == 0) {
-            return "redirect:/user?dsuccess=0";
+            return "redirect:/user?dfailed";
         } else {
-            return "redirect:/user?dsuccess=1";
+            return "redirect:/user?dsuccess";
         }
     }
 
-    @GetMapping(value = "/user")
+    @GetMapping(path = "")
     public String findAll(Model model) {
         model.addAttribute("dataSets", userService.findAll());
-        return "dataSets";
+        return "/user/list";
     }
 
 }

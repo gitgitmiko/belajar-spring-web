@@ -1,4 +1,4 @@
-package com.flashdin.belajarspringwebweb.service.impl;
+package com.flashdin.belajarspringweb.service.impl;
 
 import com.flashdin.belajarspringweb.dao.ProfileDAO;
 import com.flashdin.belajarspringweb.dao.impl.ProfileDAOImpl;

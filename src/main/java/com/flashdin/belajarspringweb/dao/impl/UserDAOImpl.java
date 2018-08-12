@@ -36,15 +36,14 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User update(User param) {
         String sql = "update table_user set username=?,password=? where id=?";
-        KeyHolder keyHolder = new GeneratedKeyHolder();
-        jdbcTemplate.update(connection -> {
+        int rtn = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, param.getUsername());
             ps.setString(2, param.getPassword());
             ps.setInt(3, param.getId());
             return ps;
-        }, keyHolder);
-        param.setId(keyHolder.getKey().intValue());
+        });
+        param.setId(rtn);
         return param;
     }
 
