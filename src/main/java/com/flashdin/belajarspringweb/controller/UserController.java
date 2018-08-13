@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    private UserSevice userService = new UserServiceImpl();
+    private UserSevice userService;
 
     @GetMapping(path = "/create")
     public String viewCreate(Model model) {

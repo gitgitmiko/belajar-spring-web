@@ -15,7 +15,7 @@ import java.util.List;
 public class ProfileServiceImpl implements ProfileSevice {
 
     @Autowired
-    private ProfileDAO profileDAO = new ProfileDAOImpl();
+    private ProfileDAO profileDAO;
 
     @Override
     public Profile save(@RequestBody Profile param) {

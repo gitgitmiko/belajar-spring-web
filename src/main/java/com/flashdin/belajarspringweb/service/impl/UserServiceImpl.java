@@ -13,7 +13,7 @@ import java.util.List;
 public class UserServiceImpl implements UserSevice {
 
     @Autowired
-    private UserDAO userDAO = new UserDAOImpl();
+    private UserDAO userDAO;
 
     @Override
     public User save(User param) {

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class ProfileController {
 
     @Autowired
-    private ProfileSevice profileService = new ProfileServiceImpl();
+    private ProfileSevice profileService;
 
     @GetMapping(path = "/create")
     public String viewCreate(Model model) {
