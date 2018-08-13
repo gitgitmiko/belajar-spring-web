@@ -2,6 +2,7 @@ package com.flashdin.belajarspringweb.dao.impl;
 
 import com.flashdin.belajarspringweb.dao.ProfileDAO;
 import com.flashdin.belajarspringweb.entity.Profile;
+import com.flashdin.belajarspringweb.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,8 +28,8 @@ public class ProfileDAOImpl implements ProfileDAO {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, param.getNamaLengkap());
             ps.setString(2, param.getAlamat());
-            ps.setInt(2, param.getUmur());
-            ps.setString(2, param.getJk());
+            ps.setInt(3, param.getUmur());
+            ps.setString(4, param.getJk());
             return ps;
         }, keyHolder);
         param.setId(keyHolder.getKey().intValue());
@@ -38,17 +39,16 @@ public class ProfileDAOImpl implements ProfileDAO {
     @Override
     public Profile update(Profile param) {
         String sql = "update table_profile set namaLengkap=?,alamat=?,umur=?,jk=? where id=?";
-        KeyHolder keyHolder = new GeneratedKeyHolder();
-        jdbcTemplate.update(connection -> {
+        int rtn = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, param.getNamaLengkap());
             ps.setString(2, param.getAlamat());
-            ps.setInt(2, param.getUmur());
-            ps.setString(2, param.getJk());
-            ps.setInt(3, param.getId());
+            ps.setInt(3, param.getUmur());
+            ps.setString(4, param.getJk());
+            ps.setInt(5, param.getId());
             return ps;
-        }, keyHolder);
-        param.setId(keyHolder.getKey().intValue());
+        });
+        param.setId(rtn);
         return param;
     }
 
@@ -75,4 +75,9 @@ public class ProfileDAOImpl implements ProfileDAO {
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Profile.class));
     }
 
+    @Override
+    public List<Profile> findByName(Profile param) {
+        String sql = "select * from table_profile where namaLengkap like ?";
+        return jdbcTemplate.query(sql, new Object[]{"%" + param.getNamaLengkap() + "%"}, new BeanPropertyRowMapper<>(Profile.class));
+    }
 }

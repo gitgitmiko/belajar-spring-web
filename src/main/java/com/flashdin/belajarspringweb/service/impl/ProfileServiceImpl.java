@@ -41,4 +41,9 @@ public class ProfileServiceImpl implements ProfileSevice {
     public List<Profile> findAll() {
         return profileDAO.findAll();
     }
+
+    @Override
+    public List<Profile> findByName(Profile param) {
+        return profileDAO.findByName(param);
+    }
 }
