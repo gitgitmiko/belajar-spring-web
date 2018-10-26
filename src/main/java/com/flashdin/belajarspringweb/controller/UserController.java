@@ -1,8 +1,7 @@
 package com.flashdin.belajarspringweb.controller;
 
 import com.flashdin.belajarspringweb.entity.User;
-import com.flashdin.belajarspringweb.service.UserSevice;
-import com.flashdin.belajarspringweb.service.impl.UserServiceImpl;
+import com.flashdin.belajarspringweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    private UserSevice userService;
+    private UserService userService;
 
     @GetMapping(path = "/create")
     public String viewCreate(Model model) {

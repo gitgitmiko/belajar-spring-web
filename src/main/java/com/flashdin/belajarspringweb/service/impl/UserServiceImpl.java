@@ -1,16 +1,15 @@
 package com.flashdin.belajarspringweb.service.impl;
 
 import com.flashdin.belajarspringweb.dao.UserDAO;
-import com.flashdin.belajarspringweb.dao.impl.UserDAOImpl;
 import com.flashdin.belajarspringweb.entity.User;
-import com.flashdin.belajarspringweb.service.UserSevice;
+import com.flashdin.belajarspringweb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserSevice {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDAO userDAO;
