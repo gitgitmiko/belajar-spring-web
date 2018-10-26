@@ -76,6 +76,9 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<!-- Spring Security 3.2.0.RELEASE Framework -->
+
+
 	<build>
 		<plugins>
 			<plugin>
