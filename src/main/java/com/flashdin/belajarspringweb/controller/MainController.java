@@ -18,7 +18,7 @@ public class MainController {
     public String viewLogin(String username, String password) {
         User currentLogin = userService.findByUsernameAndPassword(username, password);
         if (currentLogin == null) {
-            return null;
+            return ("Login gagal");
         } else {
             return "menu";
         }
