@@ -7,5 +7,6 @@ import java.util.List;
 public interface UserService extends BaseService<User> {
 
     List<User> findByUsername(User param);
+    User findByUsernameAndPassword (String username, String password);
 
 }

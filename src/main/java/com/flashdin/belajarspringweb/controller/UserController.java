@@ -26,6 +26,7 @@ public class UserController {
         return "/user/update";
     }
 
+
     @PostMapping(value = "/create")
     public String save(User param) {
         User data = userService.save(param);

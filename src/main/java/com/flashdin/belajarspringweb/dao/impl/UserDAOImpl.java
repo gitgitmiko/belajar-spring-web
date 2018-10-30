@@ -10,6 +10,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
 
@@ -74,5 +75,11 @@ public class UserDAOImpl implements UserDAO {
     public List<User> findByUsername(User param) {
         String sql = "select * from table_user where username like ?";
         return jdbcTemplate.query(sql, new Object[]{"%" + param.getUsername() + "%"}, new BeanPropertyRowMapper<>(User.class));
+    }
+
+    @Override
+    public User findByUsernameAndPassword(String username, String password) {
+        String sql = "select * from table_user where username=? and password=?";
+        return jdbcTemplate.queryForObject(sql, new Object[] {username, password}, new BeanPropertyRowMapper<>(User.class));
     }
 }
