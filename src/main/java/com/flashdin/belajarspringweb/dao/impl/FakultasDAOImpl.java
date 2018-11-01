@@ -1,7 +1,7 @@
 package com.flashdin.belajarspringweb.dao.impl;
 
-import com.flashdin.belajarspringweb.dao.MatakuliahDAO;
-import com.flashdin.belajarspringweb.entity.Matakuliah;
+import com.flashdin.belajarspringweb.dao.FakultasDAO;
+import com.flashdin.belajarspringweb.entity.Fakultas;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,18 +14,19 @@ import java.sql.Statement;
 import java.util.List;
 
 @Repository
-public class MatakuliahDAOImpl implements MatakuliahDAO {
+public class FakultasDAOImpl implements FakultasDAO {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public Matakuliah save(Matakuliah param) {
-        String sql = "insert into table_makul (makul) values (?)";
+    public Fakultas save(Fakultas param) {
+        String sql = "insert into table_fakultas (nama) values (?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, param.getMakul());
+            ps.setString(1, param.getNama());
+
             return ps;
         }, keyHolder);
         param.setId(keyHolder.getKey().intValue());
@@ -33,11 +34,11 @@ public class MatakuliahDAOImpl implements MatakuliahDAO {
     }
 
     @Override
-    public Matakuliah update(Matakuliah param) {
-        String sql = "update table_makul set makul=? where id=?";
+    public Fakultas update(Fakultas param) {
+        String sql = "update table_fakultas set  nama=? where id=?";
         int rtn = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, param.getMakul());
+            ps.setString(1, param.getNama());
             ps.setInt(2, param.getId());
             return ps;
         });
@@ -46,8 +47,8 @@ public class MatakuliahDAOImpl implements MatakuliahDAO {
     }
 
     @Override
-    public int delete(Matakuliah param) {
-        String sql = "delete from table_makul where id=?";
+    public int delete(Fakultas param) {
+        String sql = "delete from table_fakultas where id=?";
         int rtn = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, param.getId());
@@ -57,21 +58,21 @@ public class MatakuliahDAOImpl implements MatakuliahDAO {
     }
 
     @Override
-    public Matakuliah findById(int id) {
-        String sql = "select * from table_makul where id=?";
-        return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<>(Matakuliah.class));
+    public Fakultas findById(int id) {
+        String sql = "select * from table_fakultas where id=?";
+        return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<>(Fakultas.class));
     }
 
     @Override
-    public List<Matakuliah> findAll() {
-        String sql = "select * from table_makul";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Matakuliah.class));
+    public List<Fakultas> findAll() {
+        String sql = "select * from table_fakultas";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Fakultas.class));
     }
 
     @Override
-    public List<Matakuliah> findByName(Matakuliah param) {
-        String sql = "select * from table_makul where makul like ?";
-        return jdbcTemplate.query(sql, new Object[]{"%" + param.getMakul() + "%"}, new BeanPropertyRowMapper<>(Matakuliah.class));
+    public List<Fakultas> findByName(Fakultas param) {
+        String sql = "select * from table_fakultas where makul like ?";
+        return jdbcTemplate.query(sql, new Object[]{"%" + param.getNama() + "%"}, new BeanPropertyRowMapper<>(Fakultas.class));
     }
 
 }

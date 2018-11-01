@@ -25,48 +25,25 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="form-group col-md-4">
-            <h2>Edit Data Mahasiswa</h2>
+            <h2>Edit Jurusan</h2>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4"></div>
         <div class="form-group col-md-4">
-            <button type="button" class="close" onclick="window.location.href='/mahasiswa';">&times;</button>
+            <button type="button" class="close" onclick="window.location.href='/fakultas';">&times;</button>
         </div>
     </div>
-    <form th:object="${dataSets}" th:action="@{/mahasiswa/update}" th:method="put">
+    <form th:object="${dataSets}" th:action="@{/fakultas/update}" th:method="put">
         <input type="hidden" th:id="id" th:name="id" th:field="*{id}">
 
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-                <label for="namaMhs">Nama Mahasiswa</label>
-                <input type="text" class="form-control" th:id="namaMhs" th:name="namaMhs" placeholder="Nama Mahasiswa"
-                       th:field="*{namaMhs}" required>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-                <label for="alamat">Alamat</label>
-                <input type="text" class="form-control" th:id="alamat" th:name="alamat" placeholder="Alamat"
-                       th:field="*{alamat}" required>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-                <label for="idFakultas">ID Fakultas</label>
-                <input type="text" class="form-control" th:id="idFakultas" th:name="idFakultas" placeholder="ID Fakultas"
-                       th:field="*{idFakultas}" required>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-                <label for="idJurusan">ID Jurusan</label>
-                <input type="text" class="form-control" th:id="idJurusan" th:name="idJurusan" placeholder="ID Jurusan"
-                       th:field="*{idJurusan}" required>
+
+                <label for="nama">Fakultas</label>
+                <input type="text" class="form-control" th:id="nama" th:name="nama" placeholder="Fakultas"
+                       th:field="*{nama}" required>
             </div>
         </div>
         <div class="row">

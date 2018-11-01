@@ -52,9 +52,9 @@ CREATE TABLE `table_profile` (
 --
 
 INSERT INTO `table_profile` (`id`, `namaLengkap`, `alamat`, `umur`, `jk`) VALUES
-(1, 'Complete Name 0', 'Alamat 0', 20, 'Pria'),
-(3, 'Complete Name 1', 'Alamat 1', 20, 'Pria'),
-(4, 'Complete Name 2', 'Alamat 2', 20, 'Pria');
+(1, 'Sigit Jatmiko', 'Depok', 22, 'Pria'),
+(2, 'Dewi Safitri', 'Pondok Ranggon', 21, 'Wanita'),
+(3, 'Bagas Farezka', 'Cibubur', 21, 'Pria');
 
 -- --------------------------------------------------------
 
