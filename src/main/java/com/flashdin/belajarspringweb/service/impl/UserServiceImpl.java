@@ -40,13 +40,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> find() {
+        return userDAO.find();
+    }
+
+    @Override
     public List<User> findByUsername(User param) {
         return userDAO.findByUsername(param);
     }
 
     @Override
     public User findByUsernameAndPassword(String username, String password) {
-        return userDAO.findByUsernameAndPassword(username, password);
+        User login = userDAO.findByUsernameAndPassword(username, password);
+        if (login != null) {
+            return login;
+        }
+
+        return null;
     }
 
 

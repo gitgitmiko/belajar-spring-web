@@ -1,6 +1,8 @@
 package com.flashdin.belajarspringweb.dao.impl;
 
+import com.flashdin.belajarspringweb.constant.Table;
 import com.flashdin.belajarspringweb.dao.UserDAO;
+import com.flashdin.belajarspringweb.entity.Profile;
 import com.flashdin.belajarspringweb.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -70,6 +72,14 @@ public class UserDAOImpl implements UserDAO {
         String sql = "select * from table_user";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
     }
+
+    @Override
+    public List<User> find() {
+        String sql = "SELECT * FROM " + Table.TABLE_USER;
+
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class));
+    }
+
 
     @Override
     public List<User> findByUsername(User param) {

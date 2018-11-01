@@ -1,5 +1,6 @@
 package com.flashdin.belajarspringweb.dao.impl;
 
+import com.flashdin.belajarspringweb.constant.Table;
 import com.flashdin.belajarspringweb.dao.ProfileDAO;
 import com.flashdin.belajarspringweb.entity.Profile;
 import com.flashdin.belajarspringweb.entity.User;
@@ -72,6 +73,13 @@ public class ProfileDAOImpl implements ProfileDAO {
     @Override
     public List<Profile> findAll() {
         String sql = "select * from table_profile";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Profile.class));
+    }
+
+    @Override
+    public List<Profile> find() {
+        String sql = "SELECT * FROM " + Table.TABLE_PROFILE;
+
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Profile.class));
     }
 

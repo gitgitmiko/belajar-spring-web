@@ -26,7 +26,7 @@ public class MahasiswaDAOImpl implements MahasiswaDAO {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public List<Mahasiswa> findAll(Mahasiswa param) {
+    public List<Mahasiswa> find() {
         String sql = "SELECT " +
                 "mahasiswa.id AS id, " +
                 "mahasiswa.namaMhs AS namaMhs, " +

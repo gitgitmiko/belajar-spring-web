@@ -1,5 +1,6 @@
 package com.flashdin.belajarspringweb.dao.impl;
 
+import com.flashdin.belajarspringweb.constant.Table;
 import com.flashdin.belajarspringweb.dao.FakultasDAO;
 import com.flashdin.belajarspringweb.entity.Fakultas;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,6 +68,14 @@ public class FakultasDAOImpl implements FakultasDAO {
     public List<Fakultas> findAll() {
         String sql = "select * from table_fakultas";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Fakultas.class));
+    }
+
+
+    @Override
+    public List<Fakultas>  find() {
+        String sql = "SELECT * FROM " + Table.TABLE_FAKULTAS;
+
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Fakultas.class)); //beanproperty menyamakan database
     }
 
     @Override

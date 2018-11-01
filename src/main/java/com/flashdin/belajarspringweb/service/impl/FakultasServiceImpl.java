@@ -2,6 +2,7 @@ package com.flashdin.belajarspringweb.service.impl;
 
 import com.flashdin.belajarspringweb.dao.FakultasDAO;
 import com.flashdin.belajarspringweb.entity.Fakultas;
+import com.flashdin.belajarspringweb.entity.Mahasiswa;
 import com.flashdin.belajarspringweb.service.FakultasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,11 @@ public class FakultasServiceImpl implements FakultasService {
     @Override
     public List<Fakultas> findAll() {
         return fakultasDAO.findAll();
+    }
+
+    @Override
+    public List<Fakultas> find() {
+        return fakultasDAO.find();
     }
 
     @Override

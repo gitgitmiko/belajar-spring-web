@@ -14,11 +14,11 @@ public class MainController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(value = "/menu")
-    public String viewLogin(String username, String password) {
+    @PostMapping(value = "/do-login")
+    public String doLogin(String username, String password) {
         User currentLogin = userService.findByUsernameAndPassword(username, password);
         if (currentLogin == null) {
-            return ("Login gagal");
+            return "loginfailed";
         } else {
             return "menu";
         }

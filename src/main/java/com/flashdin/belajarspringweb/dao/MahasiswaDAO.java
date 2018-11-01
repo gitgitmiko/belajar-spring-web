@@ -6,5 +6,5 @@ import java.util.List;
 public interface MahasiswaDAO extends BaseDAO<Mahasiswa>{
 
     List<Mahasiswa> findByName(Mahasiswa param);
-    List<Mahasiswa> findAll(Mahasiswa param);
+
 }

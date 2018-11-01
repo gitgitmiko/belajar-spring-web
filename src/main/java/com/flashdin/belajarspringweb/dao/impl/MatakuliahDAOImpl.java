@@ -1,5 +1,6 @@
 package com.flashdin.belajarspringweb.dao.impl;
 
+import com.flashdin.belajarspringweb.constant.Table;
 import com.flashdin.belajarspringweb.dao.MatakuliahDAO;
 import com.flashdin.belajarspringweb.entity.Matakuliah;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +66,13 @@ public class MatakuliahDAOImpl implements MatakuliahDAO {
     @Override
     public List<Matakuliah> findAll() {
         String sql = "select * from table_makul";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Matakuliah.class));
+    }
+
+    @Override
+    public List<Matakuliah> find() {
+        String sql = "SELECT * FROM " + Table.TABLE_MAKUL;
+
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Matakuliah.class));
     }
 

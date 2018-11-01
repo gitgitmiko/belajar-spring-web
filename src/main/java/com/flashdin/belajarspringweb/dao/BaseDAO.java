@@ -14,4 +14,6 @@ public interface BaseDAO<T> {
 
     List<T> findAll();
 
+    List<T> find();
+
 }

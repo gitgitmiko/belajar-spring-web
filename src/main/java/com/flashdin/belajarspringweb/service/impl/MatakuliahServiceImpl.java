@@ -40,6 +40,11 @@ public class MatakuliahServiceImpl implements MatakuliahService {
     }
 
     @Override
+    public List<Matakuliah> find() {
+        return matakuliahDAO.find();
+    }
+
+    @Override
     public List<Matakuliah> findByName(Matakuliah param) {
         return matakuliahDAO.findByName(param);
     }

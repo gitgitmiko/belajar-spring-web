@@ -41,6 +41,11 @@ public class JurusanServiceImpl implements JurusanService {
     }
 
     @Override
+    public List<Jurusan> find() {
+        return jurusanDAO.find();
+    }
+
+    @Override
     public List<Jurusan> findByName(Jurusan param) {
         return jurusanDAO.findByName(param);
     }

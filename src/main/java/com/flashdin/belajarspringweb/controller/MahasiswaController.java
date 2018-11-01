@@ -7,12 +7,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/mahasiswa")
 public class MahasiswaController {
 
     @Autowired
     private MahasiswaService mahasiswaService;
+
+    @GetMapping(value = "/mahasiswa")
+    public List<Mahasiswa> mahasiswa(){
+        return mahasiswaService.find();
+    }
 
     @GetMapping(path = "/create")
     public String viewCreate(Model model) {

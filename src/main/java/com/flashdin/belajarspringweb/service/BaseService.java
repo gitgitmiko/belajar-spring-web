@@ -14,4 +14,6 @@ public interface BaseService<T> {
 
     List<T> findAll();
 
+    List<T> find();
+
 }

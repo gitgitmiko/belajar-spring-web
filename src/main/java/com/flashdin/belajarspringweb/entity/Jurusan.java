@@ -4,6 +4,7 @@ public class Jurusan extends User {
 
     private String nama;
     private int idFakultas, idJurusan;
+    private Fakultas fakultas;//object join
     public Jurusan() {
     }
 
@@ -46,6 +47,16 @@ public class Jurusan extends User {
     public void setIdJurusan(int idJurusan) {
         this.idJurusan = idJurusan;
     }
+
+    //join
+    public Fakultas getFakultas() {
+        return fakultas;
+    }
+
+    public void setFakultas(Fakultas fakultas) {
+        this.fakultas = fakultas;
+    }
+    //
 
     @Override
     public String toString() {
