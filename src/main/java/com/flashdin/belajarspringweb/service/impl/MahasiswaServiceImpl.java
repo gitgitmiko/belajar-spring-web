@@ -44,4 +44,9 @@ public class MahasiswaServiceImpl implements MahasiswaService{
         return mahasiswaDAO.findByName(param);
     }
 
+    @Override
+    public List<Mahasiswa> findAll(Mahasiswa param) {
+        return mahasiswaDAO.findAll();
+    }
+
 }

@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/mahasiswa")
 public class MahasiswaController {
 
-
-
     @Autowired
     private MahasiswaService mahasiswaService;
 

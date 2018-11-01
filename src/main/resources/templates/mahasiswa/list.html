@@ -206,6 +206,7 @@
 
     <div class="panel-group">
         <div class="panel panel-default">
+
             <div class="panel-heading">
                 <div class="row">
                     <div class="col col-md-12">
@@ -235,7 +236,13 @@
                                                 <div class="form-group">
                                                     <label for="filter">Filter :</label>
                                                     <select class="form-control" id="filter" name="filter">
-                                                        <option value="username" selected="">Username
+                                                        <option value="alamat" selected="">Alamat
+                                                        </option>
+                                                        <option value="idFakultas" selected="">ID Fakultas
+                                                        </option>
+                                                        <option value="idJurusan" selected="">ID Jurusan
+                                                        </option>
+                                                        <option value="namaMhs" selected="">Nama Mahasiswa
                                                         </option>
                                                     </select>
                                                 </div>
@@ -261,7 +268,9 @@
                         <th>Nama Mahasiswa</th>
                         <th>Alamat</th>
                         <th>ID Fakultas</th>
+                        <th>Fakultas</th>
                         <th>ID Jurusan</th>
+                        <th>Jurusan</th>
                         <th class="text-center"><em class="fa fa-cog"></em></th>
                     </tr>
                     </thead>
@@ -270,7 +279,9 @@
                         <td th:text="${data.namaMhs}"></td>
                         <td th:text="${data.alamat}"></td>
                         <td th:text="${data.idFakultas}"></td>
+                        <td ></td>
                         <td th:text="${data.idJurusan}"></td>
+                        <td ></td>
                         <td align="center">
                             <a th:href="${'mahasiswa/update/' + data.id}" class="btn btn-warning"><i
                                     class="fa fa-pencil"></i></a>

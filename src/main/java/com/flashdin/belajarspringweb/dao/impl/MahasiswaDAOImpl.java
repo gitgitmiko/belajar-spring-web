@@ -26,7 +26,7 @@ public class MahasiswaDAOImpl implements MahasiswaDAO {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public List<Mahasiswa> findAll() {
+    public List<Mahasiswa> findAll(Mahasiswa param) {
         String sql = "SELECT " +
                 "mahasiswa.id AS id, " +
                 "mahasiswa.namaMhs AS namaMhs, " +
@@ -117,11 +117,19 @@ public class MahasiswaDAOImpl implements MahasiswaDAO {
         return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<>(Mahasiswa.class));
     }
 
+    @Override
+    public List<Mahasiswa> findAll() {
+        String sql = "select * from table_students";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Mahasiswa.class));
+    }
+
 
     @Override
     public List<Mahasiswa> findByName(Mahasiswa param) {
         String sql = "select * from table_students where namaMhs like ?";
         return jdbcTemplate.query(sql, new Object[]{"%" + param.getNamaMhs() + "%"}, new BeanPropertyRowMapper<>(Mahasiswa.class));
     }
+
+
 
 }
